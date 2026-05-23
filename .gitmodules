@@ -10,6 +10,6 @@
 [submodule "third_party/gaussian_splatting"]
 	path = third_party/gaussian_splatting
 	url = git@github.com:leggedrobotics/DiskChunGS-Inria.git
-[submodule "3D-duEuler-Players"]
-	path = 3D-duEuler-Players
+[submodule "duEuler"]
+	path = duEuler
 	url = git@github.com:duEuler/3D-duEuler-Players.git
