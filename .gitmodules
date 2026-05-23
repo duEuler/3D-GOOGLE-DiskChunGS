@@ -6,7 +6,7 @@
 	url = https://github.com/casimirfeldmann/depth-anything-tensorrt
 [submodule "third_party/ORB-SLAM3"]
 	path = third_party/ORB-SLAM3
-	url = https://github.com/casimirfeldmann/ORB_SLAM3
+	url = git@github.com:duEuler/ORB-SLAM3.git
 [submodule "third_party/gaussian_splatting"]
 	path = third_party/gaussian_splatting
 	url = git@github.com:leggedrobotics/DiskChunGS-Inria.git
