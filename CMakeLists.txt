@@ -80,8 +80,12 @@ if(NOT TENSORRT_FOUND)
     message(WARNING "TensorRT not found. TensorRT depth estimation will be disabled.")
 else()
     # Read TensorRT version
-    file(STRINGS "${TENSORRT_INCLUDE_DIR}/NvInferVersion.h" tensorrt_version REGEX "#define NV_TENSORRT_MAJOR +[0-9]+")
-    string(REGEX MATCH "[0-9]+" tensorrt_version_major ${tensorrt_version})
+    file(STRINGS "${TENSORRT_INCLUDE_DIR}/NvInferVersion.h" tensorrt_version REGEX "#define NV_TENSORRT_MAJOR[ \t]+[0-9]+")
+    if(tensorrt_version)
+        string(REGEX MATCH "[0-9]+" tensorrt_version_major "${tensorrt_version}")
+    else()
+        set(tensorrt_version_major 10)
+    endif()
     
     # Check TensorRT version and set library accordingly
     if (WIN32)
@@ -172,9 +176,9 @@ add_library(
 )
 
 if(IS_ARM)
-    set_target_properties(cuda_rasterizer PROPERTIES CUDA_ARCHITECTURES "87")
+    set_target_properties(cuda_rasterizer PROPERTIES CUDA_ARCHITECTURES "120")
 else()
-    set_target_properties(cuda_rasterizer PROPERTIES CUDA_ARCHITECTURES "86")
+    set_target_properties(cuda_rasterizer PROPERTIES CUDA_ARCHITECTURES "120")
 endif()
 
 target_include_directories(

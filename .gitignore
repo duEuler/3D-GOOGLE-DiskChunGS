@@ -50,3 +50,32 @@ debug/
 
 models/depth_anything_v2_vitl.onnx
 *.engine
+
+
+node_modules/
+dist/
+build/
+.cache/
+.vite/
+coverage/
+
+*.log
+*.tmp
+*.temp
+
+.env
+.env.*
+
+.DS_Store
+Thumbs.db
+
+# Large generated files
+*.ply
+*.splat
+*.sog
+
+# Optional
+*.mp4
+*.zip
+*.tar
+*.gz

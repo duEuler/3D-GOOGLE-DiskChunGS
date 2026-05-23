@@ -1,3 +1,5 @@
+#include <opencv2/cudawarping.hpp>
+#include <opencv2/cudaarithm.hpp>
 /**
  * This file is part of DiskChunGS.
  *

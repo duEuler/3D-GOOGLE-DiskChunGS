@@ -23,7 +23,7 @@ std::pair<torch::Tensor, torch::Tensor> GuidedMVS::operator()(
   std::vector<torch::Tensor> other2ref_list;
   for (const auto& keyframe : keyframes) {
     auto rel_pose = torch::matmul(keyframe->getRT(),
-                                  torch::linalg::inv(refKeyframe->getRT()));
+                                  torch::inverse(refKeyframe->getRT()));
     other2ref_list.push_back(rel_pose.slice(0, 0, 3).slice(1, 0, 4));
   }
   auto relative_poses = torch::stack(other2ref_list, 0).contiguous().cuda();

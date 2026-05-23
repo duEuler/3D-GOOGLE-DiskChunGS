@@ -27,7 +27,7 @@
 #include <map>
 #include <memory>
 #include <mutex>
-#include <opencv2/cudafilters.hpp>
+// disabled: #include <opencv2/cudafilters.hpp>
 #include <opencv2/cudaimgproc.hpp>
 #include <opencv2/cudastereo.hpp>
 #include <opencv2/cudawarping.hpp>

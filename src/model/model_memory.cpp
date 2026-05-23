@@ -74,12 +74,12 @@ void GaussianModel::saveAndEvictChunks(const torch::Tensor& chunk_ids) {
 size_t GaussianModel::getCurrentGPUMemoryUsage() const {
   if (torch::cuda::is_available()) {
     namespace c10Alloc = c10::cuda::CUDACachingAllocator;
-    c10Alloc::DeviceStats mem_stats = c10Alloc::getDeviceStats(0);
+    c10::CachingDeviceAllocator::DeviceStats mem_stats = c10::cuda::CUDACachingAllocator::getDeviceStats(0);
 
     // Get current allocated bytes (this is what we want to track for chunks)
-    c10Alloc::Stat alloc_bytes =
+    c10::CachingAllocator::Stat alloc_bytes =
         mem_stats
-            .allocated_bytes[static_cast<int>(c10Alloc::StatType::AGGREGATE)];
+            .allocated_bytes[static_cast<int>(c10::CachingAllocator::StatType::AGGREGATE)];
     return alloc_bytes.current;
   }
   return 0;
